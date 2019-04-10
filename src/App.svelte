@@ -8,4 +8,3 @@
 	</div>
 	Rest of slot
 </Component>
-

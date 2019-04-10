@@ -1,6 +1,5 @@
 import App from './App.svelte'
 import fs from 'fs'
-console.debug(App)
 const app = App.render({
 	hydrate: true,
 })
@@ -25,5 +24,4 @@ ${html__app}
 </html>
 `.trim()
 fs.writeFileSync('./public/index.html', html)
-console.debug(app.html)
 export default app

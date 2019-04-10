@@ -128,7 +128,6 @@ const App = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 	})}`;
 });
 
-console.debug(App);
 const app = App.render({
 	hydrate: true,
 });
@@ -153,7 +152,6 @@ ${html__app}
 </html>
 `.trim();
 fs.writeFileSync('./public/index.html', html);
-console.debug(app.html);
 
 module.exports = app;
 //# sourceMappingURL=bundle.ssr.js.map

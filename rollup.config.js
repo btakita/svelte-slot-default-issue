@@ -66,6 +66,7 @@ export default [{
 			name: 'execute-ssr',
 			writeBundle(bundle) {
 				exec('node ./public/bundle.ssr.js')
+				console.info('exported ./public/index.html')
 			},
 		}
 	]
