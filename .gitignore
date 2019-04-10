@@ -1,6 +1,5 @@
 .DS_Store
 .idea
 node_modules
-public/bundle.*
 package-lock.json
 yarn.lock
