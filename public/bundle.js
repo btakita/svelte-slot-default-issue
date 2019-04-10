@@ -108,9 +108,6 @@ var app = (function () {
 	function claim_text(nodes, data) {
 		for (let i = 0; i < nodes.length; i += 1) {
 			const node = nodes[i];
-			console.debug('claim_text|debug|0', {
-				node
-			})
 			if (node.nodeType === 3) {
 				node.data = data;
 				return nodes.splice(i, 1)[0];
@@ -389,21 +386,7 @@ var app = (function () {
 				a = claim_element(div0_nodes, "A", { href: true }, false);
 				var a_nodes = children(a);
 
-				console.debug('l|debug|0')
 				t0 = claim_text(a_nodes, "default value");
-				console.debug('l|debug|1', {
-					t0,
-					'Array.from(a_nodes)': Array.from(a_nodes),
-					'a_nodes.length': a_nodes.length,
-					'a_nodes[0]': a_nodes[0],
-					'a_nodes[0].cloneNode()': a_nodes[0].cloneNode(),
-					'a_nodes[1].cloneNode()': a_nodes[1].cloneNode(),
-					a,
-					div0_nodes,
-					div0,
-					div1_nodes,
-					div1,
-				})
 				if (test2_slot) test2_slot.l(a_nodes);
 				a_nodes.forEach(detach);
 				if (test1_slot) test1_slot.l(div0_nodes);

@@ -1,3 +1,11 @@
+import App from './App.svelte'
+import fs from 'fs'
+console.debug(App)
+const app = App.render({
+	hydrate: true,
+})
+const { html: html__app } = app
+const html = `
 <!doctype html>
 <html>
 <head>
@@ -11,23 +19,11 @@
 </head>
 
 <body>
-<div class="Component">
-		
-			<div class="test__Component">
-				
-					<a href=".">
-						<div slot="test2">
-			override
-		</div>
-		Rest of slot
-	
-					</a>
-				
-			</div>
-		
-		
-		
-	</div>
+${html__app}
 <script src='bundle.js'></script>
 </body>
 </html>
+`.trim()
+fs.writeFileSync('./public/index.html', html)
+console.debug(app.html)
+export default app
