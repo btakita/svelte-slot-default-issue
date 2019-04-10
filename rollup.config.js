@@ -2,6 +2,7 @@ import svelte from 'rollup-plugin-svelte'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
+import { exec } from 'shelljs'
 //const production = !process.env.ROLLUP_WATCH;
 const production = false
 export default [{
@@ -61,8 +62,11 @@ export default [{
 		// https://github.com/rollup/rollup-plugin-commonjs
 		resolve(),
 		commonjs(),
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser()
+		{
+			name: 'execute-ssr',
+			writeBundle(bundle) {
+				exec('node ./public/bundle.ssr.js')
+			},
+		}
 	]
 }]
